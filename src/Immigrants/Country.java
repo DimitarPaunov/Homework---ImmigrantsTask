@@ -10,7 +10,11 @@ public class Country {
 	
 	private String name;
 	private ArrayList<City> cities;
-	private static final String[] NAMES = {"SOFIA","VT","BURGAS","VARNA","PLEVEN","KARDZHALI", "SOZOPOL" , "KITEN", "PLOVDIV", "HASKOVO"};
+	private static final String[] NAMES = {
+			
+			"SOFIA" , "VT" , "BURGAS" , "VARNA" , "PLEVEN" , "KARDZHALI" , "SOZOPOL" , "KITEN" , "PLOVDIV" , "HASKOVO"
+			
+	};
 
 	public Country(String name,int cities) {
 		this.name = name;
@@ -23,7 +27,6 @@ public class Country {
 			
 				c.setCountry(this);		
 				this.cities.add(c);
-			
 			
 		}
 		
