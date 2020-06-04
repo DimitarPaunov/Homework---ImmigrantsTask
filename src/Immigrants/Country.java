@@ -3,6 +3,7 @@ package Immigrants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ public class Country {
 	
 	private String name;
 	private ArrayList<City> cities;
+	
 	private static final String[] NAMES = {
 			
 			"SOFIA" , "VT" , "BURGAS" , "VARNA" , "PLEVEN" , "KARDZHALI" , "SOZOPOL" , "KITEN" , "PLOVDIV" , "HASKOVO"
@@ -19,14 +21,19 @@ public class Country {
 	public Country(String name,int cities) {
 		this.name = name;
 		this.cities = new ArrayList<City>();
+
 		Random r = new Random();
+		ArrayList<String> cityNames = new ArrayList<>(Arrays.asList(NAMES));
 		
 		for (int i = 0; i < cities; i++) {
 			
-			City c = new City(NAMES[r.nextInt(NAMES.length)]);
+			int randomCityIndex = r.nextInt(cityNames.size());
+			City c = new City(cityNames.get(randomCityIndex));
 			
-				c.setCountry(this);		
-				this.cities.add(c);
+			c.setCountry(this);		
+			this.cities.add(c);	
+			cityNames.remove(randomCityIndex);
+			
 			
 		}
 		
