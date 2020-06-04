@@ -33,6 +33,18 @@ public class ExtremistImmigrant extends Immigrant {
 	public void act() {
 		this.blowUp();
 	}
+	
+	public boolean usedBomb() {
+		
+		for(Weapon w: weapons) {
+			
+			if(w.isBomb()) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
 
 	
 
