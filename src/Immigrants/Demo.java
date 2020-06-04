@@ -2,6 +2,7 @@ package Immigrants;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -15,7 +16,7 @@ public class Demo {
 	public static void main(String[] args) {
 		
 		
-		Country c = new Country("BULGARIA", 4);
+		Country c = new Country("BULGARIA", 5);
 		
 		System.out.println("All cities in country " +c.getName() +"\n");
 		System.out.println(c.getCities() +"\n");
@@ -168,6 +169,7 @@ public class Demo {
 				if(o1.getCitizens() - o2.getCitizens() == 0) {
 					return o1.getName().compareTo(o2.getName());
 				}
+				
 				return o1.getCitizens() - o2.getCitizens();
 			}
 			
@@ -183,16 +185,21 @@ public class Demo {
 	
 	private static void hasBomb(ArrayList<Immigrant> imm) {
 		
+		HashSet<Immigrant> immigrants = new HashSet<>();
+		
 		for(Immigrant i : imm) {
 			
 			if(i instanceof ExtremistImmigrant) {
 				
-				if(i.carryBomb()) {
-					System.out.println(i);
+				if(((ExtremistImmigrant) i).usedBomb()) {
+					immigrants.add(i);
 				}
 				
 			}
 			
+		}
+		for(Immigrant j : immigrants) {
+			System.out.println(j);
 		}
 		
 	}	
