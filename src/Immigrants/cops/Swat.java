@@ -17,7 +17,7 @@ public class Swat extends PoliceMan {
 		if(i.isLegal()) {
 			return true;
 		}else {
-			if(new Random().nextInt(10) > 4) {
+			if(new Random().nextInt(10) == 1) {
 				return true;
 			}
 			

@@ -15,14 +15,15 @@ public class ExtremistImmigrant extends Immigrant {
 		return false;
 	}
 	
-	public void blowUp() {
+	public void blowUp() throws CityBlewUpException {
 		
 		for(Weapon w: weapons) {
 			
 			if(w.isBomb()) {
+				
 				w.shoot();
-				System.out.println("The city blew up !");
-				city.dissappear();
+				throw new CityBlewUpException();
+				
 			}
 			
 		}
@@ -30,7 +31,7 @@ public class ExtremistImmigrant extends Immigrant {
 	}
 	
 	@Override
-	public void act() {
+	public void act() throws CityBlewUpException {
 		this.blowUp();
 	}
 	

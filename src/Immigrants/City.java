@@ -20,8 +20,9 @@ public class City {
 		this.police = new ArrayList<>();
 		
 		for(int i = 0; i < r.nextInt(20)+20; i++) {
+			int chance = r.nextInt(100);
 			
-			if(r.nextBoolean()) {
+			if(chance < 52) {
 				this.police.add(new Officer("Policai " + i,this));
 			}else {
 				this.police.add(new Swat("Swat " + i, this));
